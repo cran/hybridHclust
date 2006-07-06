@@ -1,11 +1,11 @@
 Package: hybridHclust
 Title: Hybrid hierarchical clustering
-Version: 1.0-0
-Date: 2006-03-20
+Version: 1.0-1
+Date: 2006-07-06
 Author: Hugh Chipman, Rob Tibshirani, with tsvq code originally from Trevor Hastie
 Description: hybrid hierarchical clustering via mutual clusters
-Maintainer: Hugh Chipman <hugh.chipman@acadiau.ca>
+Maintainer: Hugh Chipman <PutChipmansFirstNameHere.chipman@acadiau.ca>
 Depends: cluster
 License: GPL2.0
 URL: http://ace.acadiau.ca/math/chipmanh/hybridHclust
-Packaged: Tue Mar 21 09:33:27 2006; hchipman
+Packaged: Thu Jul  6 09:33:04 2006; hchipman

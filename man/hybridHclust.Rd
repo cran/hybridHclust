@@ -28,13 +28,29 @@ are then \dQuote{stitched} together to form a single top-down clustering.
   Only maximal mutual clusters are constrained to not be broken.  Thus if
 points A, B, C, D are a mutual cluster and points A, B are also a mutual cluster, only the four
 points will be forbidden from being broken.
+
+Because \code{hybridHclust} uses \code{tsvq} to build the hierarchical
+clusterings, it is implicitly using squared Euclidean distance between rows
+of x.  In some instances (especially for microarray data), a desirable
+distance measure is d(x1,x2)=1-cor(x1,x2), if x1 and x2 are 2 rows of the
+matrix x.  This correlation-based distance is equivalent to squared
+Euclidean distance once rows have been scaled to have mean 0 and standard
+deviation 1.  This can be accomplished by pre-processing x before calling
+\code{hybridHclust}.  An example is provided below.
 }
 \value{
   A dendrogram in \code{hclust} format.
 }
 \author{Hugh Chipman}
 
-\seealso{tsvq}
+\references{Chipman, H. and Tibshirani, R. (2006) "Hybrid Hierarchical
+Clustering with Applications to Microarray Data", Biostatistics, 7,
+302-317.
+
+\url{http://ace.acadiau.ca/math/chipmanh/hybridHclust/}
+}
+
+\seealso{tsvq, \dQuote{hopach} package}
 \examples{
 x <- cbind(c(-1.4806,1.5772,-0.9567,-0.92,-1.9976,-0.2723,-0.3153),
 c( -0.6283,-0.1065,0.428,-0.7777,-1.2939,-0.7796,0.012))
@@ -45,6 +61,25 @@ plot(hyb1)
 
 # also works 
 mc1 <- mutualCluster(x)
+mc1
+# (3,7) and (1,4) are the two mutual clusters
 hyb1 <- hybridHclust(x,mc1)
+
+print('example on sorlie data, may take up to a minute to run')
+data(sorlie)
+x.scaled <- t(sorlie)
+# We take the transpose of "sorlie" because we want to cluster tissue
+# samples.  Tissue samples are columns of "sorlie" and hybridHclust will
+# cluster rows.
+
+for (i in 1:nrow(x.scaled))
+  x.scaled[i,] <- (sorlie[,i]-mean(sorlie[,i]))/sd(sorlie[,i])
+# Scale the rows of x.scaled matrix.  This will mean that squared Euclidean
+# distance used by hybridHclust will be equivalent to correlation distance.
+
+hhc1 <- hybridHclust(x.scaled,trace=TRUE)
+plot(hhc1,labels=dimnames(x.scaled)[[1]])
+
+print('\n\n run demo(hybridHclust) for a more complete package demonstration')
 }
 \keyword{cluster}
