@@ -13,9 +13,9 @@ is as follows:
 4: Lumnial B/C (15 observations)
 5: Luminal A (32 observations)
     }
-\format{A matrix with 456 rows and 85 columns.}
+\format{A vector with 456 elements.}
 \references{Sorlie, T. et. al. (2001) "Gene expression patterns of breast
 carcinomas distinguish tumor subclasses with clinical implications", PNAS,
 98, 10969-74}
 \keyword{datasets}
-\usage{data(sorlie.labels)}
+\usage{data(sorlielabels)}

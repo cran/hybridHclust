@@ -4,7 +4,7 @@ as.hclust=TRUE,trace=FALSE)
 {
 	if (is.data.frame(x)) x <- as.matrix(x)
 	if (is.null(row.names(x))) row.names(x) <- 1:nrow(x)
-	trytwomeans <- function(x,centers,iter.max=10,d2fun,ntry){
+	trytwomeans <- function(x,centers,iter.max=10,ntry){
 		if (nrow(centers)!=2) stop(paste('trytwomeans: trying to split into',
 			nrow(centers), 'groups instead of 2\n'))
 		best <- kmeans(x,centers,iter.max)
@@ -43,7 +43,7 @@ as.hclust=TRUE,trace=FALSE)
 			while (all(x[seed[1],]==x[seed[2],],na.rm=TRUE))
 				seed <- sample(jseq, 2, replace = FALSE)
 			#cat('\n',length(interior.list),'seed=',seed,':  ')
-			fit0 <- trytwomeans(x, x[seed,  ],d2fun=d2fun,ntry=ntry)
+			fit0 <- trytwomeans(x, x[seed,  ],ntry=ntry)
 			junk <- as.list(1:2)
 			wss <- fit0$withinss
 			if(verbose) cat("Split pair WSS:", format(round(wss, 2)), "\n")
@@ -90,7 +90,7 @@ as.hclust=TRUE,trace=FALSE)
 	else return(result)
 }
 
-redo.fused.tsvq <- function(obj,x,d2fun,...)
+redo.fused.tsvq <- function(obj,x,...)
 {
 	newobj <- obj
 	# recalculate the wss for the interior nodes of the tree

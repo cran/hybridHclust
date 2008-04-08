@@ -36,15 +36,15 @@ uncent.cordist <- function(x,absolute=FALSE) {
 	METHODS <- c('euclidean','squared.euclidean','correlation','uncentered.correlation')
 	method <- pmatch(method,METHODS)
 	if (method==1) {
-		dfun <- function(x){as.matrix(daisy(x,metric='euclidean'))} 
-		d2fun <- function(x,i) {
+		dfun <- function(x,absolute=FALSE){as.matrix(daisy(x,metric='euclidean'))} 
+		d2fun <- function(x,i,absolute=FALSE) {
 			diff <- (x - x[rep(i,nrow(x)),])^2
 			multiplier <- ncol(x)/apply(!is.na(diff),1,sum)
 			sqrt(apply(diff,1,sum,na.rm=TRUE)*multiplier)
 		}
 	} else if (method==2) {
-		dfun <- function(x){as.matrix(daisy(x,metric='euclidean')^2)} 
-		d2fun <- function(x,i) {
+		dfun <- function(x,absolute=FALSE){as.matrix(daisy(x,metric='euclidean')^2)} 
+		d2fun <- function(x,i,absolute=FALSE) {
 			diff <- (x - x[rep(i,nrow(x)),])^2
 			multiplier <- ncol(x)/apply(!is.na(diff),1,sum)
 			apply(diff,1,sum,na.rm=TRUE)*multiplier
