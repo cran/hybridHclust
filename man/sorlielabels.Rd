@@ -1,6 +1,6 @@
 \name{sorlielabels}
 \alias{sorlielabels}
-\docType{Data}
+\docType{data}
 \title{Cluster labels for sorlie data}
 \description{In Sorlie et. al. (2001), M. Eisen's cluster
   software was used to cluster the 85 samples into 5 groups.  These labels

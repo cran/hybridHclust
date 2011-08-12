@@ -1,6 +1,6 @@
 \name{sorlie}
 \alias{sorlie}
-\docType{Data}
+\docType{data}
 \title{Gene expression data for breast cancer tumors}
 \description{Gene expression levels of 456 genes for 85 tissue samples.
 The original data had missing values scattered throughout the matrix.
