@@ -6,7 +6,7 @@
 Print method for mutual cluster objects.
 }
 \usage{
-print.mutualCluster(x, ...)
+\method{print}{mutualCluster}(x, \dots)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

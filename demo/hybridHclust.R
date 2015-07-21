@@ -1,7 +1,7 @@
 cat('
 Demo for hybridHclust library
 Commentary on the example is online at
- http://ace.acadiau.ca/math/chipmanh/hybridHclust/tutorial.html')
+ http://www.acadiau.ca/~hchipman/hybridHclust/tutorial.html')
 
 readline('hit enter to start')
 

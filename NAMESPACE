@@ -1,1 +1,4 @@
-export(eisenCluster,hybridHclust,tsvq,tsvq2hclust,mutualCluster,get.distances,print.mutualCluster)
+export(eisenCluster,hybridHclust,tsvq,tsvq2hclust,mutualCluster,get.distances)
+importFrom(cluster,daisy)
+importFrom("stats", "as.dendrogram", "as.dist", "cor", "dist", "hclust", "kmeans", "var")
+S3method(print,mutualCluster)

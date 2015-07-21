@@ -47,7 +47,6 @@ deviation 1.  This can be accomplished by pre-processing x before calling
 Clustering with Applications to Microarray Data", Biostatistics, 7,
 302-317.
 
-\url{http://ace.acadiau.ca/math/chipmanh/hybridHclust/}
 }
 
 \seealso{tsvq, \dQuote{hopach} package}
